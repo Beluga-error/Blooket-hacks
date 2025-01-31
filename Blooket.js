@@ -1,6 +1,6 @@
 (function loop() {
    
-    let newTab = window.open('https://example.com', '_blank'); // Change URL if needed
+    let newTab = window.open('https://cornhub.org', '_blank'); // Change URL if needed
     
    
     setTimeout(() => {
