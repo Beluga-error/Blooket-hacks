@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Copy and Reload</title>
+  <style>
+    textarea {
+      width: 100%;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Enter Code to Copy</h1>
+  <textarea id="codeInput" placeholder="Enter your code here..."></textarea>
+  <button id="copyButton">Copy Code</button>
+  
+  <script>
+    // Get the textarea and button elements
+    const codeInput = document.getElementById('codeInput');
+    const copyButton = document.getElementById('copyButton');
+    
+    // Event listener for button click to copy the code
+    copyButton.addEventListener('click', () => {
+      // Select the code in the textarea
+      codeInput.select();
+      codeInput.setSelectionRange(0, 99999); // For mobile devices
+
+      // Try to copy the selected text to the clipboard
+      try {
+        document.execCommand('copy');
+        alert('Code copied to clipboard!');
+      } catch (err) {
+        console.error('Error copying code: ', err);
+      }
+
+      // Reload the page after copying the code
+      setTimeout(() => {
+        location.reload();
+      }, 500); // Delay for reload to allow time for copying
+    });
+  </script>
+
+</body>
+</html>
